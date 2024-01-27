@@ -1,17 +1,20 @@
-from card import Card
+import card
+import random
 
 class Deck:
 
     def __init__(self):
         self.all_cards = []
 
-        for suit in suits:
-            for rank in ranks:
-                created_card = Card(suit, rank)
+        for suit in card.suits:
+            for rank in card.ranks:
+                created_card = card.Card(suit, rank)
                 self.all_cards.append(created_card)
 
     def __str__(self):
-        print(self.all_cards)
+        for card in self.all_cards:
+            print(card)
+        return 'End of Deck'
 
-new_deck = Deck()
-print(new_deck)
+    def shuffle(self):
+        random.shuffle(self.all_cards)
