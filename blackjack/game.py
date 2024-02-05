@@ -1,8 +1,6 @@
 from Deck import Deck
 from Player import Player
 
-bet_amount = 0
-
 print('Welcome to Blackjack')
 mike = Player('Mike', 1000)
 dealer = Player('Dealer')
@@ -15,8 +13,13 @@ def deal_cards():
     mike.hand.add_card(deck.deal_one())
     dealer.hand.add_card(deck.deal_one())
 
+def get_bet_amount():
+    global bet_amount
+    bet_amount = int(input('How much do you want to bet? \n'))
+    return bet_amount
+
 def start_game():
-    bet_amount = input('How much do you want to bet? \n')
+    get_bet_amount()
     deal_cards()
 
 def display_cards():
