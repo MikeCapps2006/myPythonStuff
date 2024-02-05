@@ -9,18 +9,23 @@ class Hand:
     def add_card(self, card):
         #card passed in is from deck.deal_one --> single Card(suit, rank)
         self.cards.append(card)
-        print(card)
         self.value += Card.values[card.rank]
+
+        #track aces
+        if(card.rank) == 'Ace':
+            self.aces += 1
 
     def adjust_for_aces(self):
         #Adjusts the score if aces are present in the hand self.cards list
-        pass
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
 
     def __str__(self):
         #Prints out each card in self.cards list
         for card in self.cards:
             print(card)
-        return 'End of hand'
+        return f'Value: {self.value}'
 
 """ hand = Hand()
 newCard = Card.Card('Hearts', 'Two')

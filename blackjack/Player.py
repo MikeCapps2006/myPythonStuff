@@ -3,7 +3,7 @@ import Chips
 
 class Player:
     
-    def __init__(self, name, chips):
+    def __init__(self, name, chips = 1000):
         self.name = name
         self.chips = Chips.Chips(chips)
         self.hand = Hand.Hand()
